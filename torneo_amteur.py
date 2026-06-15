@@ -25,6 +25,39 @@ Implementar:
     
 
 # mensajes de error
+equipos = []
+
+def registrar_equipos():
+    cantidad = int(input("¿Cuántos equipos desea registrar? "))
+
+    for i in range(cantidad):
+        nombre = input(f"Nombre del equipo {i+1}: ")
+
+        equipo = {
+            "nombre": nombre,
+            "pj": 0,
+            "pg": 0,
+            "pe": 0,
+            "pp": 0,
+            "gf": 0,
+            "gc": 0,
+            "dg": 0,
+            "pts": 0
+        }
+
+        equipos.append(equipo)
+
+def mostrar_equipos():
+    for equipo in equipos:
+        print(equipo["nombre"])
+
+def buscar_equipo(nombre):
+    for equipo in equipos:
+        if equipo["nombre"] == nombre:
+            return equipo
+
+    return None
+
 
 
 
