@@ -60,6 +60,32 @@ def buscar_equipo(nombre):
 
 
 
+def actualizar_dg(equipos):
+
+    for equipo in equipos:
+        equipo["dg"] = equipo["gf"] - equipo["gc"]
+
+
+def mostrar_tabla(equipos):
+
+    actualizar_dg(equipos)
+
+    tabla = sorted(
+        equipos,
+        key=lambda e: (e["pts"], e["dg"]),
+        reverse=True
+    )
+
+    print("\nTABLA DE POSICIONES")
+
+    for i, equipo in enumerate(tabla):
+
+        print(
+            i + 1,
+            equipo["nombre"],
+            "PTS:", equipo["pts"],
+            "DG:", equipo["dg"]
+        )
 
 
 
