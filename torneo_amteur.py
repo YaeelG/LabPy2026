@@ -60,6 +60,64 @@ def buscar_equipo(nombre):
 
 
 
+#//GESTION DE EQUIPOS // NICO
+
+
+def cargar_resultado(equipos):
+
+    print("\nEquipos disponibles:")
+
+    for i, equipo in enumerate(equipos):
+        print(i + 1, "-", equipo["nombre"])
+
+    local = int(input("Seleccione equipo local: ")) - 1
+    visitante = int(input("Seleccione equipo visitante: ")) - 1
+
+    goles_local = int(
+        input(f"Goles de {equipos[local]['nombre']}: ")
+    )
+
+    goles_visitante = int(
+        input(f"Goles de {equipos[visitante]['nombre']}: ")
+    )
+
+    equipo_local = equipos[local]
+    equipo_visitante = equipos[visitante]
+
+    equipo_local["pj"] += 1
+    equipo_visitante["pj"] += 1
+
+    equipo_local["gf"] += goles_local
+    equipo_local["gc"] += goles_visitante
+
+    equipo_visitante["gf"] += goles_visitante
+    equipo_visitante["gc"] += goles_local
+
+    if goles_local > goles_visitante:
+
+        equipo_local["pg"] += 1
+        equipo_local["pts"] += 3
+
+        equipo_visitante["pp"] += 1
+
+    elif goles_local < goles_visitante:
+
+        equipo_visitante["pg"] += 1
+        equipo_visitante["pts"] += 3
+
+        equipo_local["pp"] += 1
+
+    else:
+
+        equipo_local["pe"] += 1
+        equipo_visitante["pe"] += 1
+
+        equipo_local["pts"] += 1
+        equipo_visitante["pts"] += 1
+#//ACA TERMINA GESTION DE EQUIPOS
+
+
+
 def actualizar_dg(equipos):
 
     for equipo in equipos:
