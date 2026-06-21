@@ -144,6 +144,30 @@ def mostrar_tabla(equipos):
             "PTS:", equipo["pts"],
             "DG:", equipo["dg"]
         )
+#//Estadisticas // Lautaro
+Archivo: estadisticas.py
+def mostrar_estadisticas(equipos):
+
+    total_goles = 0
+
+    for equipo in equipos:
+        total_goles += equipo["gf"]
+
+    equipo_goleador = max(
+        equipos,
+        key=lambda e: e["gf"]
+    )
+
+    print("\nESTADÍSTICAS")
+
+    print("Cantidad de equipos:", len(equipos))
+    print("Total de goles:", total_goles)
+
+    print(
+        "Equipo más goleador:",
+        equipo_goleador["nombre"]
+    )
+#//FinEstadisticas //
 
 
 
