@@ -168,6 +168,37 @@ def mostrar_estadisticas(equipos):
         equipo_goleador["nombre"]
     )
 #//FinEstadisticas //
+while True:
+
+    print("\n===== TORNEO AMATEUR =====")
+    print("1. Registrar equipos")
+    print("2. Mostrar equipos")
+    print("3. Cargar resultado")
+    print("4. Ver tabla")
+    print("5. Ver estadísticas")
+    print("6. Salir")
+
+    opcion = input("Seleccione una opción: ")
+
+    if opcion == "1":
+        registrar_equipos()
+
+    elif opcion == "2":
+        mostrar_equipos()
+
+    elif opcion == "3":
+        cargar_resultado(equipos)
+
+    elif opcion == "4":
+        mostrar_tabla(equipos)
+
+    elif opcion == "5":
+        mostrar_estadisticas(equipos)
+
+    elif opcion == "6":
+        print("Programa finalizado.")
+        break
+
 
 
 
